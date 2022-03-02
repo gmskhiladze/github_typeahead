@@ -1,0 +1,46 @@
+@import '/src/assets/mixins/mixins';
+
+.search__suggestions{
+  @include w-h(50%, auto);
+
+  ul{
+    @include w-h(100%, auto);
+    @include marg(0, 0, 0, 0);
+    @include pad(0, 0, 0, 0);
+    @include flex(flex, column, flex-start, none);
+    list-style: none;
+
+    li {
+      @include marg(5px, 0, 5px, 0);
+      @include flex(flex, row, flex-start, center);
+      cursor: pointer;
+      border-radius: 5px 30px 30px 5px;
+      background-color: $suggest_list_bg;
+      box-shadow: 0 0 5px 0 $suggest_list_shadow_color;
+
+      .user__image{
+        @include w-h(50px, 50px);
+        border-radius: 5px;
+      }
+
+      span {
+        @include w-h(100%, auto);
+        @include marg(0, 10px, 0, 10px);
+        @include flex(flex, none, flex-start, none);
+        cursor: pointer;
+        color: $suggest_text_color;
+      }
+    }
+
+    li:hover {
+      transition: .3s ease-in-out;
+      transform: scale(1.03);
+    }
+  }
+}
+
+@media (max-width: 576px){
+  .search__suggestions {
+    @include w-h(90%, auto);
+  }
+}
